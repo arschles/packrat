@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/arschles/receipt-classifier/ocr"
 	"github.com/gobuffalo/envy"
 )
 
@@ -33,12 +34,12 @@ func main() {
 		log.Fatalf("Couldn't read file %s (%s)", filename, err)
 	}
 	ctx := context.Background()
-	resp, err := makeOCRCall(
+	resp, err := ocr.Run(
 		ctx,
 		http.DefaultClient,
-		&cogSvcsEndpoint{
-			url:   fmt.Sprintf("%s/vision/v2.1/ocr", endpoint),
-			subID: subID,
+		&ocr.CognitiveServicesEndpoint{
+			URL:   fmt.Sprintf("%s/vision/v2.1/ocr", endpoint),
+			SubID: subID,
 		},
 		bytes.NewReader(fileBytes),
 	)
