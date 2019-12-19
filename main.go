@@ -8,7 +8,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"strings"
 
 	"github.com/gobuffalo/envy"
 )
@@ -51,5 +50,14 @@ func main() {
 	if err := json.NewDecoder(resp.Body).Decode(&dc); err != nil {
 		log.Fatalf("Error decoding json (%s)", err)
 	}
-	fmt.Print(strings.Join(dc.allText(), "\n"))
+	matches, err := runMatches(dc)
+	if err != nil {
+		log.Fatalf("Failed to find matches (%s)", err)
+	}
+
+	js, err := json.MarshalIndent(matches, "", "    ")
+	if err != nil {
+		log.Fatalf("Couldn't JSON-ify the matches (%s)", err)
+	}
+	fmt.Println(string(js))
 }
