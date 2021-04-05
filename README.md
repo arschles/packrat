@@ -4,7 +4,7 @@ If you have a huge pile of paper records like receipts, etc..., you can use `pac
 
 I started this project after I read [Brian](https://github.com/bketelsen)'s [blog post](https://www.brianketelsen.com/ai-ml-documents-one/) about how he used OCR to digitize a lot of his receipts. I fell in love with the idea because I have a pile of receipts and other paper records that keeps growing and it stresses me out. I also never, ever want to have to go and sort & file them.
 
-So, I followed Brian's lead and built a rough version of the OCR system he talked about in the post. Using [the Microsoft OCR sample code written in C#](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts/csharp-print-text) as a guide, I was able to throw something together very quickly.
+So, I followed Brian's lead and built a rough version of the OCR system he talked about in the post. Using [the Microsoft OCR sample code written in C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-print-text?WT.mc_id=opensource-0000-aaschles) as a guide, I was able to throw something together very quickly.
 
 ## Usage
 
